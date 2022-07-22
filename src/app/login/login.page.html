@@ -1,0 +1,25 @@
+
+
+<ion-content>
+  <div class="flex-center">
+    <ion-card>
+      <ion-card-content>
+        <center>
+          <ion-icon name="person-circle" size="large"></ion-icon>
+        </center>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" >Password</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+        <br>
+        <br>
+        <ion-button expand="block" shape="round" color="tertiary" (click) = "print()" [routerLink] = "['/home']">Log In</ion-button>
+        <ion-button expand="block" shape="round" color="tertiary" [routerLink] = "['/signup']">Sign Up</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
