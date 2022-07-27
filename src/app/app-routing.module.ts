@@ -31,6 +31,10 @@ const routes: Routes = [
     path: 'steps',
     loadChildren: () => import('./steps/steps.module').then( m => m.StepsPageModule)
   },
+  {
+    path: 'faqpage',
+    loadChildren: () => import('./faqpage/faqpage.module').then( m => m.FAQpagePageModule)
+  },
 ];
 
 @NgModule({
