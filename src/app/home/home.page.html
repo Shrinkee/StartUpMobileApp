@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" color="primary">
   <!--Slideshow-->
   <ion-slides pager #mySlider class="slides" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOptsOne" >
     <ion-slide>
@@ -13,13 +13,13 @@
         HOME
       </h1>
     </ion-slide>
-    <ion-slide>
+    <ion-slide [routerLink]="['/aboutus']">
       <h1>
-        <ion-icon name="people-outline"></ion-icon>
+        <ion-icon name="people-outline" ></ion-icon>
         ABOUT US
       </h1>
     </ion-slide>
-    <ion-slide (click)="print" [routerLink]="['/faqpage']">
+    <ion-slide [routerLink]="['/faqpage']">
       <h1>
         <ion-icon name="help-circle-outline"></ion-icon>
         FAQ
@@ -39,7 +39,7 @@
        be a hassle and have a lot of .......
     </ion-card-content>
     <center>
-      <ion-button>Learn More</ion-button><br><br>
+      <ion-button [routerLink]="['/steps']">Learn More</ion-button><br><br>
     </center>
   </ion-card>
   
@@ -54,7 +54,7 @@
     <ion-item>
       <ion-icon name="game-controller-outline" slot="start"></ion-icon>
       <ion-label>Gaming Technology Business</ion-label>
-      <ion-button fill="outline" slot="end">Learn More</ion-button>
+      <ion-button fill="outline" slot="end" color="tertiary" [routerLink] ="['/business-trends']">Learn More</ion-button>
     </ion-item>
   
     <ion-card-content>
@@ -68,7 +68,7 @@
     <ion-item>
       <ion-icon name="home-outline" slot="start"></ion-icon>
       <ion-label>Real Estate</ion-label>
-      <ion-button fill="outline" slot="end">Learn More</ion-button>
+      <ion-button fill="outline" slot="end" color="tertiary">Learn More</ion-button>
     </ion-item>
   
     <ion-card-content>
@@ -81,7 +81,7 @@
     <ion-item>
       <ion-icon name="fast-food-outline" slot="start"></ion-icon>
       <ion-label>Food Business</ion-label>
-      <ion-button fill="outline" slot="end">Learn More</ion-button>
+      <ion-button fill="outline" slot="end" color="tertiary">Learn More</ion-button>
     </ion-item>
   
     <ion-card-content>
@@ -125,11 +125,17 @@
   <!--bottom right corner navigation-->
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="dark">
+    <ion-fab-button color="tertiary">
       <ion-icon name="add-circle-outline"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">
-      <ion-fab-button (click)="do1()" data-desc="My Account" color="dark">
+      <ion-fab-button data-desc="About Us" color="tertiary" [routerLink] = "['/aboutus']">
+        <ion-icon name="people-outline" ></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button data-desc="FAQ" color="tertiary" [routerLink] = "['/faqpage']">
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button data-desc="My Account" color="tertiary">
         <ion-icon name="person-circle-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>

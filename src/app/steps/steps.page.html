@@ -1,11 +1,17 @@
 <ion-content [fullscreen]="true">
   <div id="container">
     <div id="container-top">
+      <ion-breadcrumbs>
+        <ion-breadcrumb href="#home">Home</ion-breadcrumb>
+        <ion-breadcrumb href="#faqpage">Starting a Business</ion-breadcrumb>
+      </ion-breadcrumbs>
     </div>
   </div>
   <div id="content">
+
+    
     <h1>Let's Start Planning Your Business!</h1>
-    <ion-button fill="outline" slot="end" color="light" >View All >></ion-button>
+    <!--STEP1-->
     <ion-card> 
       <ion-item>
         <ion-icon name="clipboard-outline"></ion-icon>
@@ -17,11 +23,22 @@
       <ion-card-content>
         To further assist you on your business venture, we need to know more about your business.
         <br><br>
-        <ion-button fill="outline" slot="end" expand="block">Learn More</ion-button>
+        <ion-button fill="outline" slot="end" expand="block" (click) ="toggleContent1()">Learn More</ion-button>
       </ion-card-content>
+      <ion-card>
+        <!--show/hide content-->
+        <ion-card-content  *ngIf = "showStep1">
+          <!--content that will be shown-->
+          <ion-list>
+              <ion-label>Step 1: Define your Business</ion-label>
+              <p>{{content[0].step1}}</p>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
     </ion-card>
 
-    <ion-card>
+  <!--STEP2-->
+    <ion-card >
       <ion-item>
         <ion-icon name="list-outline"></ion-icon>
         <ion-card-header>
@@ -33,10 +50,22 @@
       <ion-card-content>
         After defining your business, the next step is to determine and meet the different requirements to run the business.
         <br><br>
-        <ion-button fill="outline" slot="end" expand="block">Learn More</ion-button>
+        <ion-button fill="outline" slot="end" expand="block" (click)="toggleContent2()">Learn More</ion-button>
       </ion-card-content>
+
+      <ion-card>
+        <!--show/hide content-->
+        <ion-card-content *ngIf = "showStep2">
+          <!--content that will be shown-->
+          <ion-list>
+              <ion-label>Step 2: List of Requirements</ion-label>
+              <p>{{content[1].step2}}</p>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
     </ion-card>
 
+    <!--STEP3-->
     <ion-card>
       <ion-item>
         <ion-icon name="documents-outline"></ion-icon>
@@ -49,10 +78,21 @@
       <ion-card-content>
         Once all of the required documents are acquired, the next step is to pass these documents to government agencies.
         <br><br>
-        <ion-button fill="outline" slot="end" expand="block">Learn More</ion-button>
+        <ion-button fill="outline" slot="end" expand="block" (click) = "toggleContent3()">Learn More</ion-button>
       </ion-card-content>
+      <ion-card>
+        <!--show/hide content-->
+        <ion-card-content *ngIf = "showStep3">
+          <!--content that will be shown-->
+          <ion-list>
+              <ion-label>Step 3: Passing of Requirements</ion-label>
+              <p>{{content[2].step3}}</p>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
     </ion-card>
 
+    <!--STEP 4-->
     <ion-card>
       <ion-item>
         <ion-icon name="business-outline"></ion-icon>
@@ -65,10 +105,36 @@
       <ion-card-content>
         Your venture doesn't end once your business is establish. There are more things that you should be aware of.
         <br><br>
-        <ion-button fill="outline" slot="end" expand="block">Learn More</ion-button>
+        <ion-button fill="outline" slot="end" expand="block" (click)="toggleContent4()">Learn More</ion-button>
       </ion-card-content>
+      <ion-card>  
+        <!--show/hide content-->
+        <ion-card-content *ngIf = "showStep4">
+          <!--content that will be shown-->
+          <ion-list>
+              <ion-label>Step 4: What's Next?</ion-label>
+              <p>{{content[3].step4}}</p>
+          </ion-list>
+        </ion-card-content>  
+      </ion-card>
+      
     </ion-card>
     <br>
     <br>
   </div>
+
+
+  <!--bottom right corner navigation-->
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="tertiary">
+    <ion-icon name="add-circle-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button [routerLink]="['/home']" data-desc="Home" color="tertiary">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
+
 </ion-content>
