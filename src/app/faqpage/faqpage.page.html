@@ -1,0 +1,64 @@
+<ion-content>
+
+  <ion-breadcrumbs>
+    <ion-breadcrumb href="#home">Home</ion-breadcrumb>
+    <ion-breadcrumb href="#faqpage">FAQ</ion-breadcrumb>
+  </ion-breadcrumbs>
+
+<center>
+  <div id="heading">
+    <ion-label id="Head">
+      Frequently Asked Questions
+    </ion-label>  
+  </div>
+</center>
+<ion-card>
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>How to Start a Business</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Please Refer to <ion-label [routerLink]="['/home']" color="primary">HOME</ion-label>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>Where to Signup</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Just Click the Navigation Icon and Press Create Account
+      </div>
+    </ion-accordion>
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label>Is an Online Business Tax Free?</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Yes
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-card>
+
+
+<!--bottom right corner navigation-->
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="tertiary">
+    <ion-icon name="add-circle-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button [routerLink]="['/home']" data-desc="Home" color="tertiary">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button data-desc="My Account" color="tertiary">
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button data-desc="About Us" color="tertiary" [routerLink] = "['/aboutus']">
+      <ion-icon name="people-outline" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
+
+</ion-content>

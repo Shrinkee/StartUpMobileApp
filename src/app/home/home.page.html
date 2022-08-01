@@ -1,19 +1,25 @@
-<ion-content [fullscreen]="true">
-
+<ion-content [fullscreen]="true" color="primary">
+  <!--Slideshow-->
   <ion-slides pager #mySlider class="slides" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOptsOne" >
+    <ion-slide>
+      <h1>
+        <ion-icon name="caret-forward-circle-outline"></ion-icon>
+        Welcome to StartUp
+      </h1>
+    </ion-slide>
     <ion-slide>
       <h1>
         <ion-icon name="home-outline"></ion-icon>
         HOME
       </h1>
     </ion-slide>
-    <ion-slide>
+    <ion-slide [routerLink]="['/aboutus']">
       <h1>
-        <ion-icon name="people-outline"></ion-icon>
+        <ion-icon name="people-outline" ></ion-icon>
         ABOUT US
       </h1>
     </ion-slide>
-    <ion-slide>
+    <ion-slide [routerLink]="['/faqpage']">
       <h1>
         <ion-icon name="help-circle-outline"></ion-icon>
         FAQ
@@ -21,17 +27,97 @@
     </ion-slide>
   </ion-slides>
 
-
+  <!--Creation of Business-->
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>How to Start a Business</ion-card-subtitle>
+      <ion-card-subtitle>Business</ion-card-subtitle>
       <ion-card-title>Starting a Business</ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      Creating Business is not always that easy, it could
+       be a hassle and have a lot of .......
     </ion-card-content>
+    <center>
+      <ion-button [routerLink]="['/steps']">Learn More</ion-button><br><br>
+    </center>
+  </ion-card>
+  
+
+  <!--Business Trends-->
+  <ion-label>
+    <ion-icon name="business-outline"></ion-icon>
+    Business Trends
+  </ion-label>
+  <!--Item 1-->
+  <ion-card>
+    <ion-item>
+      <ion-icon name="game-controller-outline" slot="start"></ion-icon>
+      <ion-label>Gaming Technology Business</ion-label>
+      <ion-button fill="outline" slot="end" color="tertiary" [routerLink] ="['/business-trends']">Learn More</ion-button>
+    </ion-item>
+  
+    <ion-card-content>
+      Gaming Industry has been trendy since this past years, 
+      Creating a business on gaming consoles can be....
+    </ion-card-content>
+  </ion-card>
+
+  <!--Item 2-->
+  <ion-card>
+    <ion-item>
+      <ion-icon name="home-outline" slot="start"></ion-icon>
+      <ion-label>Real Estate</ion-label>
+      <ion-button fill="outline" slot="end" color="tertiary">Learn More</ion-button>
+    </ion-item>
+  
+    <ion-card-content>
+      Every year, buildings have their value grow. The reason to this....
+    </ion-card-content>
+  </ion-card>
+  
+  <!--Item 3-->
+  <ion-card>
+    <ion-item>
+      <ion-icon name="fast-food-outline" slot="start"></ion-icon>
+      <ion-label>Food Business</ion-label>
+      <ion-button fill="outline" slot="end" color="tertiary">Learn More</ion-button>
+    </ion-item>
+  
+    <ion-card-content>
+      In this pandemic days, different businesses have emerged and one of them
+      is the Food Businesses. This is due to the...
+    </ion-card-content>
+  </ion-card>
+
+  <!--Preferences-->
+  <ion-card>
+    <ion-item>
+      <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+      <ion-label>Choose your Preference</ion-label>
+    </ion-item>
+  
+    <ion-card-content>
+      <center>
+        <ion-chip>
+          <ion-icon name="game-controller-outline" color="primary"></ion-icon>
+          <ion-label class="preference" color="primary">Entertainment</ion-label>
+          <ion-icon name="close"></ion-icon>
+        </ion-chip>
+        <ion-chip>
+          <ion-icon name="desktop-outline" color="secondary"></ion-icon>
+          <ion-label class="preference" color="secondary">Technology</ion-label>
+          <ion-icon name="close"></ion-icon>
+        </ion-chip>
+        <ion-chip>
+          <ion-icon name="fast-food-outline" color="tertiary"></ion-icon>
+          <ion-label class="preference" color="tertiary">Food and Stalls</ion-label>
+          <ion-icon name="close"></ion-icon>
+        </ion-chip>
+      </center>
+
+    </ion-card-content>
+
   </ion-card>
 
 
@@ -39,11 +125,17 @@
   <!--bottom right corner navigation-->
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="dark">
+    <ion-fab-button color="tertiary">
       <ion-icon name="add-circle-outline"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">
-      <ion-fab-button (click)="do1()" data-desc="My Account" color="dark">
+      <ion-fab-button data-desc="About Us" color="tertiary" [routerLink] = "['/aboutus']">
+        <ion-icon name="people-outline" ></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button data-desc="FAQ" color="tertiary" [routerLink] = "['/faqpage']">
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button data-desc="My Account" color="tertiary">
         <ion-icon name="person-circle-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>

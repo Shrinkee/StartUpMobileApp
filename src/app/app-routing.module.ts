@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -30,6 +30,14 @@ const routes: Routes = [
   {
     path: 'steps',
     loadChildren: () => import('./steps/steps.module').then( m => m.StepsPageModule)
+  },
+  {
+    path: 'faqpage',
+    loadChildren: () => import('./faqpage/faqpage.module').then( m => m.FAQpagePageModule)
+  },
+  {
+    path: 'business-trends',
+    loadChildren: () => import('./business-trends/business-trends.module').then( m => m.BusinessTrendsPageModule)
   },
 ];
 

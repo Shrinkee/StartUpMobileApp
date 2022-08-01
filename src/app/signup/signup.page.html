@@ -57,17 +57,17 @@
   </ion-item>
   <ion-item>
     <ion-label>Create Username:</ion-label>
-    <ion-input></ion-input> <br>
+    <ion-input [(ngModel)] ="userInfo.username"></ion-input> <br>
   </ion-item>
   <ion-item>
     <ion-label>Create Password:</ion-label>
-    <ion-input></ion-input> <br>
+    <ion-input [(ngModel)] ="userInfo.password"></ion-input> <br>
   </ion-item>
   <ion-item>
     <ion-label>Confirm Password:</ion-label>
     <ion-input></ion-input>
   </ion-item>
-  <ion-button color="tertiary" size="default"><ion-text>Create</ion-text></ion-button>
+  <ion-button color="tertiary" size="default" (click)="sendUserInfo()"><ion-text>Create</ion-text></ion-button>
 </div>
 
 
