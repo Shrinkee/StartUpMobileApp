@@ -16,7 +16,7 @@ export class StepsPage implements OnInit {
 
   content =[
     {
-      "step1":"seeehshsehaehasheasehaeasehaehseas"
+      "step1":"You need to define your business by first asking why? Why would you create a business? Then it should be followed by how? How will you do it?"
     },
     {
       "step2":"seeehshsehaedasdasdshasheasehaeasehaehseas"
