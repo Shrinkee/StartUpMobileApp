@@ -37,8 +37,8 @@ export class StepsPage implements OnInit {
   
   checkBusiness(){
     this.storage.get('Company').then((val)=>{
-      console.log(val);
-      if (val !== null){
+      if (val !== ""){
+        console.log(val);
         this.warnAlert();
       }
 
