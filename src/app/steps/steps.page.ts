@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Storage } from '@ionic/storage';
+import {AlertController} from '@ionic/angular';
 
 @Component({
   selector: 'app-steps',
@@ -7,38 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StepsPage implements OnInit {
 
-  constructor() { }
-
-  public showStep1 = false;
-  public showStep2 = false;
+  constructor(private storage:Storage, private alertController: AlertController) { }
   public showStep3 = false;
   public showStep4 = false;
 
-  content =[
-    {
-      "step1":"You need to define your business by first asking why? Why would you create a business? Then it should be followed by how? How will you do it?"
-    },
-    {
-      "step2":"seeehshsehaedasdasdshasheasehaeasehaehseas"
-    },
-    {
-      "step3":"seeehshsehaedasdasdshasheasehaeasehaehseas"
-    },
-    {
-      "step4":"seeehshsehaedasdasdshasheasehaeasehaehseas"
-    }
+  async warnAlert() {
+    const alert = await this.alertController.create({
+      header: 'Warning',
+      message: 'You already fill in your business information. Filling in again will update the previous input!',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
   
-  ]
   
   //toggleContentsButton because its not in a loop
-  toggleContent1(){
-    this.showStep1 = !this.showStep1;
-  }
-  
-  toggleContent2(){
-    this.showStep2 = !this.showStep2;
-  }
-  
+
   toggleContent3(){
     this.showStep3 = !this.showStep3;
   }
@@ -47,7 +35,15 @@ export class StepsPage implements OnInit {
     this.showStep4 = !this.showStep4;
   }
   
-  
+  checkBusiness(){
+    this.storage.get('Company').then((val)=>{
+      console.log(val);
+      if (val !== null){
+        this.warnAlert();
+      }
+
+    });
+  }
 
   ngOnInit() {
   }

@@ -1,14 +1,14 @@
 <ion-content [fullscreen]="true">
   <div id="container">
     <div id="container-top">
-      <ion-breadcrumbs>
-        <ion-breadcrumb href="#home">Home</ion-breadcrumb>
-        <ion-breadcrumb href="#faqpage">Starting a Business</ion-breadcrumb>
-      </ion-breadcrumbs>
+     
     </div>
   </div>
   <div id="content">
-
+    <ion-breadcrumbs>
+      <ion-breadcrumb href="home">Home</ion-breadcrumb>
+      <ion-breadcrumb href="steps">Starting a Business</ion-breadcrumb>
+    </ion-breadcrumbs>
     
     <h1>Let's Start Planning Your Business!</h1>
     <!--STEP1-->
@@ -23,18 +23,8 @@
       <ion-card-content>
         To further assist you on your business venture, we need to know more about your business.
         <br><br>
-        <ion-button fill="outline" slot="end" expand="block" (click) ="toggleContent1()">Learn More</ion-button>
+        <ion-button fill="outline" slot="end" expand="block" (click)="checkBusiness()" [routerLink] ="['/businessinfo']">Add Info</ion-button>
       </ion-card-content>
-      <ion-card>
-        <!--show/hide content-->
-        <ion-card-content  *ngIf = "showStep1">
-          <!--content that will be shown-->
-          <ion-list>
-              <ion-label>Step 1: Define your Business</ion-label>
-              <p>{{content[0].step1}}</p>
-          </ion-list>
-        </ion-card-content>
-      </ion-card>
     </ion-card>
 
   <!--STEP2-->
@@ -50,19 +40,8 @@
       <ion-card-content>
         After defining your business, the next step is to determine and meet the different requirements to run the business.
         <br><br>
-        <ion-button fill="outline" slot="end" expand="block" (click)="toggleContent2()">Learn More</ion-button>
+        <ion-button fill="outline" slot="end" expand="block" [routerLink] ="['/reqs']">Learn More</ion-button>
       </ion-card-content>
-
-      <ion-card>
-        <!--show/hide content-->
-        <ion-card-content *ngIf = "showStep2">
-          <!--content that will be shown-->
-          <ion-list>
-              <ion-label>Step 2: List of Requirements</ion-label>
-              <p>{{content[1].step2}}</p>
-          </ion-list>
-        </ion-card-content>
-      </ion-card>
     </ion-card>
 
     <!--STEP3-->
@@ -71,12 +50,12 @@
         <ion-icon name="documents-outline"></ion-icon>
         <ion-card-header>
           <ion-card-subtitle>Step 3</ion-card-subtitle>
-          <ion-card-title>Passing of Requirements</ion-card-title>
+          <ion-card-title>Registrations</ion-card-title>
         </ion-card-header>
       </ion-item>
     
       <ion-card-content>
-        Once all of the required documents are acquired, the next step is to pass these documents to government agencies.
+        Once all of the required documents are acquired, the next step is to pass these documents to government agencies and register with the Bureau of Internal Revenue (BIR) and SSS, PhilHealth and Pag-Ibig Fund.
         <br><br>
         <ion-button fill="outline" slot="end" expand="block" (click) = "toggleContent3()">Learn More</ion-button>
       </ion-card-content>
@@ -85,8 +64,16 @@
         <ion-card-content *ngIf = "showStep3">
           <!--content that will be shown-->
           <ion-list>
-              <ion-label>Step 3: Passing of Requirements</ion-label>
-              <p>{{content[2].step3}}</p>
+              <ion-label [ngStyle] = "{'font-weight': 'bold', 'font-size': '14px'}">Register with the Bureau of Internal Revenue (BIR) </ion-label>
+              <p>Once you secured all the documents and permits, the next registration you will do is with the Bureau of Internal Revenue. 
+                Entrepreneurs must have a Taxpayer Identification Number (TIN), which can be obtained from the Revenue District Office (RDO) within the registered location of the business.
+                The kind of BIR form that you will fill out will depend on your business structure. Form 1901 is for those people who are self-employed, single proprietors, or professionals, while Form 1903 is for partnerships and corporations. 
+                The three most important documents you need to have are the (a) Certification (based on your business structure), (b) Contract of Lease or Land Title, and (c) Mayor's Business Permit.
+
+              </p>
+              <br>
+              <ion-label [ngStyle] = "{'font-weight': 'bold', 'font-size': '14px'}">Register with SSS, PhilHealth and Pag-Ibig Fund </ion-label>
+              <p>ou need to register with the three government agencies, such as SSS, PhilHealth, and Pag-Ibig. If you are hiring employees to help you with your business, then you have to register them to the aforementioned government agencies. These three agencies collect from the business owners and the employees for monthly contributions. </p>
           </ion-list>
         </ion-card-content>
       </ion-card>
@@ -103,21 +90,10 @@
       </ion-item>
     
       <ion-card-content>
-        Your venture doesn't end once your business is establish. There are more things that you should be aware of.
+        Your venture doesn't end once your business is establish. There are more things that you should be aware of. To learn more about starting a business, click the button below.
         <br><br>
-        <ion-button fill="outline" slot="end" expand="block" (click)="toggleContent4()">Learn More</ion-button>
+        <ion-button fill="outline" slot="end" expand="block" href="https://www.sba.gov/business-guide/10-steps-start-your-business">Learn More</ion-button>
       </ion-card-content>
-      <ion-card>  
-        <!--show/hide content-->
-        <ion-card-content *ngIf = "showStep4">
-          <!--content that will be shown-->
-          <ion-list>
-              <ion-label>Step 4: What's Next?</ion-label>
-              <p>{{content[3].step4}}</p>
-          </ion-list>
-        </ion-card-content>  
-      </ion-card>
-      
     </ion-card>
     <br>
     <br>
@@ -126,15 +102,27 @@
 
   <!--bottom right corner navigation-->
 
-<ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button color="tertiary">
-    <ion-icon name="add-circle-outline"></ion-icon>
-  </ion-fab-button>
-  <ion-fab-list side="top">
-    <ion-fab-button [routerLink]="['/home']" data-desc="Home" color="tertiary">
-      <ion-icon name="home-outline"></ion-icon>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="tertiary">
+      <ion-icon name="grid-outline"></ion-icon>
     </ion-fab-button>
-  </ion-fab-list>
-</ion-fab>
+    <ion-fab-list side="top">
+      <ion-fab-button data-desc="About Us" color="tertiary" [routerLink] = "['/aboutus']">
+        <ion-icon name="people-outline" ></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button data-desc="FAQ" color="tertiary" [routerLink] = "['/faqpage']">
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button data-desc="My Planner" color="tertiary" [routerLink] = "['/calendar']">
+        <ion-icon name="calendar-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button data-desc="My Account" color="tertiary" [routerLink] = "['/myaccount']">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-fab-button>
+      
+    </ion-fab-list>
+
+    
+  </ion-fab>
 
 </ion-content>

@@ -1,0 +1,46 @@
+#label1 {
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+ion-input {
+  border: 1px solid;
+  border-radius: 10px;
+  width: 90%;
+  font-size: 12px;
+}
+
+ion-card-subtitle {
+  margin-left: 10px;
+}
+
+ion-list-header{
+  font-size: 20px;
+}
+
+.label2 {
+  font-size: 13px;
+}
+
+p{
+  color:#231955;
+}
+
+
+#content {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  padding: 5%;
+  text-align: left;
+  background-color: #231955;
+}
+
+ion-content{
+  background-color: #231955;
+}

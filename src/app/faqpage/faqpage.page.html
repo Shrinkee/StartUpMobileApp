@@ -1,8 +1,8 @@
-<ion-content>
-
+<ion-content color="#231955">
+  <br>
   <ion-breadcrumbs>
-    <ion-breadcrumb href="#home">Home</ion-breadcrumb>
-    <ion-breadcrumb href="#faqpage">FAQ</ion-breadcrumb>
+    <ion-breadcrumb href="home">Home</ion-breadcrumb>
+    <ion-breadcrumb href="faqpage">FAQ</ion-breadcrumb>
   </ion-breadcrumbs>
 
 <center>
@@ -16,26 +16,73 @@
   <ion-accordion-group>
     <ion-accordion value="first">
       <ion-item slot="header" color="light">
-        <ion-label>How to Start a Business</ion-label>
+        <ion-label text-wrap>How to start a business?</ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
-        Please Refer to <ion-label [routerLink]="['/home']" color="primary">HOME</ion-label>
+        Please Refer to <ion-label [routerLink]="['/steps']" color="primary">STARTING A BUSINESS</ion-label>
       </div>
     </ion-accordion>
     <ion-accordion value="second">
       <ion-item slot="header" color="light">
-        <ion-label>Where to Signup</ion-label>
+        <ion-label text-wrap>What are the requirements in starting a business?</ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
-        Just Click the Navigation Icon and Press Create Account
+        Please Refer to Step 2 of <ion-label [routerLink]="['/steps']" color="primary">STARTING A BUSINESS</ion-label>
       </div>
     </ion-accordion>
     <ion-accordion value="third">
       <ion-item slot="header" color="light">
-        <ion-label>Is an Online Business Tax Free?</ion-label>
+        <ion-label text-wrap>What are the current business trends?</ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
-        Yes
+        Please Refer to <ion-label [routerLink]="['/business-trends']" color="primary">BUSINESS TRENDS</ion-label>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="fourth">
+      <ion-item slot="header" color="light">
+        <ion-label text-wrap>Where can I see my user information?</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Please Refer to <ion-label [routerLink]="['/myaccount']" color="primary">My Account</ion-label>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="fifth">
+      <ion-item slot="header" color="light">
+        <ion-label text-wrap>What is the difference between sole proprietorship, partnership, and corporation ownership?</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        A sole-proprietorship has one owner who has unlimited liability for the business. 
+        <br><br>
+        A partnership involves two or more people who combine resources for the business and share profits and losses. 
+        <br><br>
+        A corporation is considered to be a separate legal entity from its shareholders. 
+      </div>
+    </ion-accordion>
+    <ion-accordion value="sixth">
+      <ion-item slot="header" color="light">
+        <ion-label text-wrap>What are the requirements to acquire business permit?</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        The following are the documents in order to acquire business permit.
+        <ol>
+          <li>Barangay Clearance</li>
+          <li>Certificate of Registration</li>
+          <li>Contract of Lease</li>
+          <li>Certificate of Occupancy</li>
+          <li>Community Tax Certificate or CEDULA</li>
+          <li>Fire Safety Inspection Certificate or Fire Permit</li>
+          <li>Building Permit and Electrical Inspection Certificate</li>
+          <li>Locational Clearance</li>
+          <li>Sanitary Permit</li>
+        </ol>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="seventh">
+      <ion-item slot="header" color="light">
+        <ion-label text-wrap>Where can I acquire needed documents?</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Please Refer to <ion-label [routerLink]="['/reqs']" color="primary">List of Requirements</ion-label>
       </div>
     </ion-accordion>
   </ion-accordion-group>
@@ -46,19 +93,25 @@
 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
   <ion-fab-button color="tertiary">
-    <ion-icon name="add-circle-outline"></ion-icon>
+    <ion-icon name="grid-outline"></ion-icon>
   </ion-fab-button>
   <ion-fab-list side="top">
-    <ion-fab-button [routerLink]="['/home']" data-desc="Home" color="tertiary">
-      <ion-icon name="home-outline"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-button data-desc="My Account" color="tertiary">
-      <ion-icon name="person-circle-outline"></ion-icon>
-    </ion-fab-button>
     <ion-fab-button data-desc="About Us" color="tertiary" [routerLink] = "['/aboutus']">
       <ion-icon name="people-outline" ></ion-icon>
     </ion-fab-button>
+    <ion-fab-button data-desc="FAQ" color="tertiary" [routerLink] = "['/faqpage']">
+      <ion-icon name="help-circle-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button data-desc="My Planner" color="tertiary" [routerLink] = "['/calendar']">
+      <ion-icon name="calendar-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button data-desc="My Account" color="tertiary" [routerLink] = "['/myaccount']">
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-fab-button>
+    
   </ion-fab-list>
+
+  
 </ion-fab>
 
 </ion-content>

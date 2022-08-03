@@ -1,0 +1,152 @@
+<!--html file-->
+<div id="content">
+<ion-content>
+  <ion-breadcrumbs>
+    <ion-breadcrumb href="home">Home</ion-breadcrumb>
+    <ion-breadcrumb href="steps">Starting a Business</ion-breadcrumb>
+    <ion-breadcrumb href="businessinfo">Business Info</ion-breadcrumb>
+  </ion-breadcrumbs>
+  <br>
+  <ion-label id="label1">
+    Company Details
+  </ion-label>
+  <!--Company Informations-->
+  <ion-card>
+    <br>
+    <ion-card-subtitle>
+      Please Enter your Company Name
+    </ion-card-subtitle>
+    <br>
+    <center>
+       <!--Input with Placeholder-->
+      <ion-input placeholder="Please Enter Company's Name" [(ngModel)] ="comName">
+      </ion-input>
+    </center>
+    <br>
+  </ion-card>
+
+  <!--More information about the company-->
+  <ion-card>
+    <!--radio button 1-->
+    <ion-list>
+      <ion-radio-group [(ngModel)]="radioValue" (ionChange)="showValue()">
+        <ion-list-header>
+          <ion-label>Type of Business</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-label class="label2">Entertainment</ion-label>
+          <ion-radio slot="start" value="Entertainment"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label class="label2">Food and Stalls</ion-label>
+          <ion-radio slot="start" value="Food and Stalls"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label class="label2">I.T.</ion-label>
+          <ion-radio slot="start" value="I.T."></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label class="label2">Wood Works</ion-label>
+          <ion-radio slot="start" value="Wood Works"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label class="label2">Consulation Company</ion-label>
+          <ion-radio slot="start" value="Consulation Company"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label class="label2">Gym</ion-label>
+          <ion-radio slot="start" value="Gym"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label class="label2">Photography and Videography Company</ion-label>
+          <ion-radio slot="start" value="Photography and Videography Company"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label class="label2">Clothing Line</ion-label>
+          <ion-radio slot="start" value="Clothing Line"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label class="label2">Interior Designing Company</ion-label>
+          <ion-radio slot="start" value="Interior Designing Company"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label class="label2">Food Truck</ion-label>
+          <ion-radio slot="start" value="Food Truck"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label class="label2">Other</ion-label>
+          <ion-radio slot="start" value="Other"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+    <br><br><br><br>
+  </ion-card>
+  <ion-card>
+    <ion-list>
+      <ion-radio-group [(ngModel)]="radioValue1" (ionChange)="showValue()">
+        <ion-list-header>
+          <ion-label>Business Ownership</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-label class="label2">Sole Proprietorship</ion-label>
+          <ion-radio slot="start" value="Sole Proprietorship"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label class="label2">Partnership</ion-label>
+          <ion-radio slot="start" value="Partnership"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label class="label2">Corporation</ion-label>
+          <ion-radio slot="start" value="Corporation"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+    <br><br>
+  </ion-card>
+  
+  <center>
+    <ion-button [routerLink] = "['/steps']" color="tertiary">
+      Cancel
+    </ion-button> 
+    <ion-button (click)="setOpen(true)" color="tertiary">
+      Submit
+    </ion-button> 
+  </center>
+
+  <!--Confirmation of Details-->
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Business Details</ion-title>
+          <ion-buttons slot="start">
+            <ion-button (click)="setBusiness()">Submit</ion-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding" color="primary" >
+        <ion-card>
+          <br>
+          <ion-card-subtitle>
+            Company Name:
+            <p>{{comName}}</p>
+          </ion-card-subtitle>
+          <ion-card-subtitle>
+            Type of Business:
+            <p>{{radioValue}}</p>
+          </ion-card-subtitle>
+          <ion-card-subtitle>
+            Business Ownership:
+            <p>{{radioValue1}}</p>
+          </ion-card-subtitle>
+        </ion-card>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <br>
+  
+</ion-content>
+</div>

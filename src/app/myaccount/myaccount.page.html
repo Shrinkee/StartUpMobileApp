@@ -1,0 +1,55 @@
+
+<ion-content [fullscreen]="true" color="primary">
+  <br>
+  <ion-breadcrumbs>
+    <ion-breadcrumb href="home">Home</ion-breadcrumb>
+    <ion-breadcrumb href="myaccount">My Account</ion-breadcrumb>
+  </ion-breadcrumbs>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-icon name="person-circle"size="medium"> Account Information </ion-icon>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label [ngStyle] = "{'font-size': '15px'}">Username:  {{username}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label [ngStyle] = "{'font-size': '15px'}">First Name:  {{fname}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label [ngStyle] = "{'font-size': '15px'}">Last Name:  {{lname}}</ion-label>
+        </ion-item>
+        <br>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-icon name="business-outline" size="medium"></ion-icon>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label [ngStyle] = "{'font-size': '15px'}">Business Name:  {{comName}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label [ngStyle] = "{'font-size': '15px'}">Type:  {{comType}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label [ngStyle] = "{'font-size': '15px'}">Ownership:  {{comOwn}}</ion-label>
+        </ion-item>
+        <br>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <ion-button shape="round" expand="block" color="tertiary" (click) = "logout()" >Logout</ion-button>
+      </ion-card-content>
+    </ion-card>
+   
+    
+  
+
+
+</ion-content>

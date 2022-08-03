@@ -2,8 +2,8 @@
 <ion-content color="primary">
    <!--Business Trends-->
    <ion-breadcrumbs>
-    <ion-breadcrumb href="#home">Home</ion-breadcrumb>
-    <ion-breadcrumb href="#business-trends">Business Trends</ion-breadcrumb>
+    <ion-breadcrumb href="home">Home</ion-breadcrumb>
+    <ion-breadcrumb href="business-trends">Business Trends</ion-breadcrumb>
   </ion-breadcrumbs>
 
    <ion-label>
@@ -25,6 +25,8 @@
     <ion-card-content *ngIf = "showDetails1v2">
       Gaming Industry has been trendy since this past years, 
       Creating a business on gaming consoles can be a huge income such that many individuals are more into gaming industry.
+      <br><br>
+      <ion-button id="btn_contact" slot="end" expand="block" color="tertiary" href="https://builtin.com/gaming/gaming-companies">Learn More Here</ion-button>
     </ion-card-content>
   </ion-card>
 
@@ -33,7 +35,7 @@
     <ion-item>
       <ion-icon name="home-outline" slot="start"></ion-icon>
       <ion-label>Real Estate</ion-label>
-      <ion-button fill="outline" slot="end" color="tertiary" (click)="toggleContentRealEstate()">Learn More</ion-button>
+      <ion-button fill="outline" slot="end" color="tertiary" (click)="toggleContentRealEstate()" href="https://blog.hubspot.com/sales/real-estate-business">Learn More</ion-button>
     </ion-item>
   
     <ion-card-content *ngIf = showDetails2>
@@ -41,6 +43,8 @@
     </ion-card-content>
     <ion-card-content *ngIf = showDetails2v2>
       Every year, buildings have their value grow. The reason to this is that the land is becoming more popular on that particular area.
+      <br><br>
+      <ion-button id="btn_contact" slot="end" expand="block" color="tertiary">Learn More Here</ion-button>
     </ion-card-content>
     
   </ion-card>
@@ -61,6 +65,8 @@
       In this pandemic days, different businesses have emerged and one of them
       is the Food Businesses. This is due to the trends on how homemad foods are more delicious and it can help
       the owners of the business.
+      <br><br>
+      <ion-button id="btn_contact" slot="end" expand="block" color="tertiary" href="https://smallbiztrends.com/2019/12/food-business-ideas.html">Learn More Here</ion-button>
     </ion-card-content>
   </ion-card>
 
@@ -69,7 +75,7 @@
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="tertiary">
-      <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-icon name="grid-outline"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">
       <ion-fab-button data-desc="About Us" color="tertiary" [routerLink] = "['/aboutus']">
@@ -78,9 +84,15 @@
       <ion-fab-button data-desc="FAQ" color="tertiary" [routerLink] = "['/faqpage']">
         <ion-icon name="help-circle-outline"></ion-icon>
       </ion-fab-button>
-      <ion-fab-button data-desc="My Account" color="tertiary">
+      <ion-fab-button data-desc="My Planner" color="tertiary" [routerLink] = "['/calendar']">
+        <ion-icon name="calendar-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button data-desc="My Account" color="tertiary" [routerLink] = "['/myaccount']">
         <ion-icon name="person-circle-outline"></ion-icon>
       </ion-fab-button>
+      
     </ion-fab-list>
+
+    
   </ion-fab>
 </ion-content>

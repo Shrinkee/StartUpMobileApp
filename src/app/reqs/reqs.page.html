@@ -1,0 +1,59 @@
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <div id="container-top">
+     
+    </div>
+  </div>
+  <div id="content">
+    <ion-breadcrumbs>
+      <ion-breadcrumb href="home">Home</ion-breadcrumb>
+      <ion-breadcrumb href="steps">Starting a Business</ion-breadcrumb>
+      <ion-breadcrumb href="reqs">List of Requirements</ion-breadcrumb>
+    </ion-breadcrumbs>
+    
+    <h1>Here are the list of requirements you must accomplish!</h1>
+    <!--STEP1-->
+
+      <ion-card *ngFor="let entry of content">
+        <br>
+        <ion-item>
+          <ion-checkbox [(ngModel)]="entry.isChecked" slot="start"></ion-checkbox>
+          <ion-card-title>{{entry.val}}</ion-card-title>
+        </ion-item>
+        <ion-card-content>
+          <p [ngStyle] = "{'font-weight': 'bold', 'font-size': '14px'}">Location: {{entry.location}}</p>
+          <br>
+          <p [ngStyle] = "{'font-size': '12px'}">{{entry.info}}</p>
+        </ion-card-content>
+      </ion-card>
+    <br>
+    <br>
+  </div>
+
+
+  <!--bottom right corner navigation-->
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="tertiary">
+      <ion-icon name="grid-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button data-desc="About Us" color="tertiary" [routerLink] = "['/aboutus']">
+        <ion-icon name="people-outline" ></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button data-desc="FAQ" color="tertiary" [routerLink] = "['/faqpage']">
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button data-desc="My Planner" color="tertiary" [routerLink] = "['/calendar']">
+        <ion-icon name="calendar-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button data-desc="My Account" color="tertiary" [routerLink] = "['/myaccount']">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-fab-button>
+      
+    </ion-fab-list>
+
+    
+  </ion-fab>
+
+</ion-content>

@@ -1,38 +1,34 @@
 <ion-header>
+  <ion-breadcrumbs>
+    <ion-breadcrumb href="home">Home</ion-breadcrumb>
+    <ion-breadcrumb href="calendar">My Planner</ion-breadcrumb>
+  </ion-breadcrumbs>
   <ion-toolbar color="primary">
-    <ion-title>Calendar</ion-title>
-  </ion-toolbar>
-  <ion-toolbar color = "tertiary">
-    <ion-buttons color = "start">
-      <ion-button color= "light" (click) = "today()">Today</ion-button>
-      <ion-button color= "light" (click) = "changeMode('month')">Month</ion-button>
-      <ion-button color= "light" (click) = "changeMode('week')">Week</ion-button>
-      <ion-button color= "light" (click) = "changeMode('day')">Day</ion-button>
-    </ion-buttons>
+    <ion-title>Event Scheduler</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
   <div *ngIf = "showAddEvent">
-    <ion-item>
-      <ion-label><b>Title :</b></ion-label>
-      <ion-input type = "text" placeholder = "Title " [(ngModel)] = "newEvent.title"></ion-input>
-    </ion-item>
 
     <ion-item>
       <ion-label><b>Description :</b></ion-label>
-      <ion-input type = "text" placeholder = "Description " [(ngModel)] = "newEvent.desciption"></ion-input>
+      <ion-input type = "text" placeholder = "Description" [(ngModel)] = "newEvent.title" maxlength ="30"></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label><b>Start Date :</b></ion-label>
-      <ion-datetime doneText = "OK" cancelText = "Cancel" displayFormat = "DD/MM/YYYY HH:mm"
-      pickerFormat = "MMM DHH:mm" [(ngModel)] = "newEvent.startTime" [min] = "minDate">
-      </ion-datetime>
-    </ion-item>
+    <ion-card>
+      <ion-datetime [(ngModel)] = "newEvent.startTime" [min] = "minDate"><span slot="title"><b>START</b></span></ion-datetime>
+    </ion-card>
+
+    <ion-card>
+      <ion-datetime [(ngModel)] = "newEvent.endTime" [min] = "minDate"><span slot="title"><b>END</b></span></ion-datetime>
+    </ion-card>
 
     <ion-button color = "primary" expand = "block" (click) = "addEvent()">Add Event</ion-button>
+    <br>
+    <br>
+    <br>
   </div>
 
   <ion-row *ngIf = "!showAddEvent">
@@ -54,21 +50,13 @@
 
   </ion-row>
 
-  <calendar *ngIf = "!showAddEvent" id = "myCalendar"
+    <calendar *ngIf = "!showAddEvent" id = "myCalendar"
     [eventSource] = "allEvents"
-    [calendarMode] = "calendar.mode"
-    startHours = "0"
-    noEventLabel= "There is no Event this day"
-    endHours = "23"
-    step = "30"
-    startingDayWeek = "1"
+    noEventsLabel = "There is no Event this day"
     [currentDate] = "calendar.currentDate"
     (onTitleChanged) = "onViewTitleChanged($event)"
-    (oneventSelected) = "onEventSelected($event)"
-    [timeInterval] = "30"
     >
-
-  </calendar>
+    </calendar>
 
   <ion-fab vertical = "bottom" horizontal ="end" slot ="fixed">
     <ion-fab-button (click) = "showHideForm()">
