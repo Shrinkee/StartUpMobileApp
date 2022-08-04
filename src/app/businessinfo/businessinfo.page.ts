@@ -11,7 +11,9 @@ import { NavController, ModalController } from '@ionic/angular';
 })
 export class BusinessinfoPage implements OnInit {
 
-  constructor(private storage:Storage, public router: Router, public navCtrl:NavController, public modalCtrl:ModalController, private alertController: AlertController) { }
+  constructor(private storage:Storage, public router: Router, public navCtrl:NavController, public modalCtrl:ModalController, private alertController: AlertController) { 
+    this.showCurrrent();
+  }
 
   ngOnInit() {
   }
@@ -73,6 +75,21 @@ setBusiness(){
   }
   
 }
+
+showCurrrent(){
+  this.storage.get('Company').then((val)=>{
+    if (val !== ""){
+      this.comName=val;
+      this.storage.get('Type').then((val)=>{
+        this.radioValue = val;
+      });
+      this.storage.get('Ownership').then((val)=>{
+        this.radioValue1 = val;
+      });
+    }
+  });
+}
+
 
 
 }

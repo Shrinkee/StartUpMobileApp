@@ -23,15 +23,33 @@ export class MyaccountPage implements OnInit {
     });
 
     this.storage.get('Company').then((val)=>{
-      this.comName = val;
+      if(val==null || val==""){
+        this.comName = "Not yet added";
+      }
+      else{
+        this.comName = val;
+      }
+      
     });
 
     this.storage.get('Type').then((val)=>{
-      this.comType = val;
+      if(val==null || val==""){
+        this.comType = "Not yet added";
+      }
+      else{
+        this.comType = val;
+      }
+      
     });
 
     this.storage.get('Ownership').then((val)=>{
-      this.comOwn = val;
+      if(val==null || val==""){
+        this.comOwn = "Not yet added";
+      }
+      else{
+        this.comOwn = val;
+      }
+      
     });
   }
 
@@ -44,6 +62,7 @@ export class MyaccountPage implements OnInit {
       this.storage.set('Ownership', "");
       this.storage.set('user', "");
       this.storage.set('currentUser', "");
+      this.storage.set('Calendar', "");
       this.router.navigate(['/login']);
       
 
